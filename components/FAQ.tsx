@@ -29,23 +29,26 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-12 text-center">Common questions</h2>
+        <div className="flex items-center gap-3 justify-center mb-12">
+           <span className="h-px w-8 bg-gray-300"></span>
+           <h2 className="text-3xl font-bold text-center text-proofly-black tracking-tight">Technical FAQ</h2>
+           <span className="h-px w-8 bg-gray-300"></span>
+        </div>
         
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-gray-300">
+            <div key={index} className="group border border-gray-200 rounded-none border-l-0 border-r-0 border-t-0 border-b py-2 transition-all duration-200">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left bg-white hover:bg-gray-50 transition-colors"
+                className="w-full flex items-start gap-6 py-4 text-left bg-white hover:bg-gray-50/50 transition-colors"
               >
-                <span className="font-semibold text-lg text-gray-900">{faq.question}</span>
-                {openIndex === index ? (
-                  <Minus className="w-5 h-5 text-gray-400" />
-                ) : (
-                  <Plus className="w-5 h-5 text-gray-400" />
-                )}
+                <span className="font-mono text-xs text-gray-400 pt-1">0{index + 1}</span>
+                <span className="flex-1 font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">{faq.question}</span>
+                <div className={`p-1 rounded-full border transition-all ${openIndex === index ? 'rotate-180 border-gray-900 bg-gray-900 text-white' : 'border-gray-200 text-gray-400'}`}>
+                   {openIndex === index ? <Minus size={14} /> : <Plus size={14} />}
+                </div>
               </button>
               
               <div 
@@ -53,7 +56,7 @@ export const FAQ: React.FC = () => {
                   openIndex === index ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="p-6 pt-0 text-gray-600 leading-relaxed bg-white">
+                <div className="pl-12 pr-6 pb-6 text-gray-600 leading-relaxed font-light">
                   {faq.answer}
                 </div>
               </div>
