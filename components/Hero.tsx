@@ -20,8 +20,8 @@ export const Hero: React.FC = () => {
   };
 
   // Shared image for the "Reality" background and the "Phone Capture"
-  // Using a wooden/plywood bathroom aesthetic to match user's context
-  const siteImage = "https://images.unsplash.com/photo-1594040226829-7124105c91c2?auto=format&fit=crop&q=80&w=1000";
+  // Plywood bathroom aesthetic
+  const siteImage = "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&q=80&w=1000";
 
   return (
     <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-48 overflow-hidden bg-[#FAFAFA]">
@@ -82,9 +82,11 @@ export const Hero: React.FC = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-blue-100/30 to-emerald-50/30 rounded-full blur-3xl -z-10 opacity-60" />
 
             {/* THE REALITY LAYER: Background Image "Being Captured" */}
-            {/* Made SQUARE and rotated slightly less for better framing behind phone */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-[60%] -translate-y-[60%] w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] rounded-[2.5rem] overflow-hidden shadow-2xl border-[8px] border-white/50 rotate-[-6deg] z-10 transition-transform hover:rotate-[-4deg] duration-700 group/scene bg-gray-100">
-                <div className="absolute inset-0 bg-black/10 z-10"></div>
+            {/* Style: "Looking in" effect (Inset Shadow) */}
+             <div className="absolute top-1/2 left-1/2 -translate-x-[60%] -translate-y-[60%] w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] rounded-[2.5rem] overflow-hidden shadow-[inset_0_0_60px_rgba(0,0,0,0.3)] ring-1 ring-black/5 rotate-[-6deg] z-10 transition-transform hover:rotate-[-4deg] duration-700 group/scene bg-gray-100">
+                {/* Inner vignette overlay for the 'hole' effect */}
+                <div className="absolute inset-0 bg-black/5 z-10 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.25)]"></div>
+                
                 <img 
                   src={siteImage} 
                   alt="Job Site Reality" 

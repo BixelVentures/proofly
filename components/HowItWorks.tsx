@@ -9,7 +9,7 @@ export const HowItWorks: React.FC = () => {
     {
       num: "01",
       id: "INIT_JOB",
-      title: "Create the Job",
+      title: "Scan the Space",
       desc: "Input address and scope in seconds. Invite your team instantly.",
       stat: "45s avg. setup",
       icon: Plus,

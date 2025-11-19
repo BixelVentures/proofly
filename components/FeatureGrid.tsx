@@ -7,11 +7,11 @@ export const FeatureGrid: React.FC = () => {
       {/* Problem / Core Value Section - Cinematic Image Cards */}
       <section className="py-24 lg:py-32 bg-[#FAFAFA] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="mb-20 max-w-2xl">
+          <div className="mb-20 max-w-4xl">
             <h2 className="text-4xl lg:text-6xl font-bold tracking-tighter mb-8 text-proofly-black">
-              What installers get <br/> with Proofly.
+              What installers get with Proofly.
             </h2>
-            <p className="text-xl text-gray-500 font-light leading-relaxed">
+            <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl">
               The average installer loses 4 hours a week chasing payments and details. We built the tool to stop that.
             </p>
           </div>
@@ -20,61 +20,59 @@ export const FeatureGrid: React.FC = () => {
             {[
               {
                 title: "Get paid instantly",
-                desc: "Turn completed work into cash immediately. Photo proof and digital sign-offs trigger payments on the spot, eliminating the chase.",
+                desc: "Turn completed work into cash immediately. Photo proof and digital sign-offs trigger payments on the spot.",
                 icon: Banknote,
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=800",
-                accent: "from-blue-600/90 to-blue-950/90"
+                // Nordic Style: Clean, finished interior
+                image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000",
+                accent: "from-blue-600 to-blue-900"
               },
               {
                 title: "Capture every decision",
-                desc: "From the exact tile shade to the faucet style. Document every client choice in a permanent visual timeline to prevent rework.",
+                desc: "From the exact tile shade to the faucet style. Document every client choice in a permanent visual timeline.",
                 icon: MessageSquare,
-                image: "https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&q=80&w=800",
-                accent: "from-purple-600/90 to-purple-950/90"
+                // Nordic Style: Texture/Materials focus
+                image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?auto=format&fit=crop&q=80&w=1000",
+                accent: "from-purple-600 to-purple-900"
               },
               {
                 title: "Legal protection",
-                desc: "Every action is timestamped and geo-tagged. If a dispute ever arises, you have an undeniable audit trail ready to go.",
+                desc: "Every action is timestamped and geo-tagged. If a dispute ever arises, you have an undeniable audit trail.",
                 icon: ShieldCheck,
-                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800",
-                accent: "from-emerald-600/90 to-emerald-950/90"
+                // Nordic Style: Clean architectural planning
+                image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1000",
+                accent: "from-emerald-600 to-emerald-900"
               }
             ].map((item, i) => (
-              <div key={i} className="group relative h-[480px] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-transparent transform hover:-translate-y-1 cursor-pointer">
+              <div key={i} className="group relative h-[480px] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-transparent cursor-default bg-gray-900">
                 {/* Background Image with Cinematic Zoom */}
-                <div className="absolute inset-0 bg-gray-900">
+                <div className="absolute inset-0 bg-gray-100">
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] grayscale group-hover:grayscale-0" 
+                    className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" 
                   />
                 </div>
                 
-                {/* Stronger Gradient Overlay for Readability */}
-                <div className={`absolute inset-0 bg-gradient-to-b ${item.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-multiply`} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80" />
+                {/* Subtle Gradient Overlay - Significantly Reduced Opacity */}
+                {/* Just a hint of the accent color, mostly transparent to let image show */}
+                <div className={`absolute inset-0 bg-gradient-to-b ${item.accent} opacity-10 mix-blend-overlay transition-opacity duration-500`} />
+                
+                {/* Text Protection Gradient - Only at the bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-10 z-20">
-                  {/* Icon with Microinteraction */}
-                  <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 text-white border border-white/20 shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-white/20 group-hover:shadow-xl origin-center">
+                <div className="absolute bottom-0 left-0 right-0 p-10 z-20 flex flex-col justify-end h-full">
+                  {/* Icon */}
+                  <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-auto text-white border border-white/20 shadow-lg">
                     <item.icon size={26} strokeWidth={1.5} />
                   </div>
                   
-                  {/* Text Content Container - shifts up slightly on hover */}
-                  <div className="transform transition-transform duration-500 group-hover:-translate-y-1">
-                    <h3 className="text-3xl font-bold tracking-tight mb-4 text-white leading-tight">{item.title}</h3>
-                    
-                    {/* Description - Slide Up & Fade In */}
-                    <p className="text-gray-100 leading-relaxed text-lg opacity-0 group-hover:opacity-100 transition-all duration-500 delay-75 transform translate-y-4 group-hover:translate-y-0 font-light">
+                  {/* Text Content */}
+                  <div>
+                    <h3 className="text-3xl font-bold tracking-tight mb-4 text-white leading-tight drop-shadow-md">{item.title}</h3>
+                    <p className="text-gray-100 leading-relaxed text-lg font-light drop-shadow-sm opacity-90">
                       {item.desc}
                     </p>
-                    
-                    {/* Hover Action Indicator - Staggered Delay */}
-                    <div className="mt-6 flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0">
-                       <span className="text-sm font-bold uppercase tracking-wider">Learn more</span>
-                       <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                    </div>
                   </div>
                 </div>
               </div>
