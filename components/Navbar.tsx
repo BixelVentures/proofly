@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-medium text-gray-500 hover:text-proofly-black transition-colors">How it works</button>
           <button onClick={() => scrollToSection('pricing')} className="text-sm font-medium text-gray-500 hover:text-proofly-black transition-colors">Pricing</button>
           <div className="w-px h-4 bg-gray-200"></div>
-          <Button onClick={() => scrollToSection('join')} variant="primary" size="sm" className="text-sm px-5 py-2 shadow-lg shadow-black/5">Join Early Access</Button>
+          <Button onClick={() => scrollToSection('join')} variant="primary" size="sm" className="text-sm px-5 py-2 shadow-lg shadow-black/5">Get started</Button>
         </div>
 
         {/* Mobile Toggle */}
@@ -65,7 +65,7 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollToSection('how-it-works')} className="text-left px-6 py-4 text-lg font-medium text-gray-800 hover:bg-gray-50 rounded-2xl transition-colors">How it works</button>
           <button onClick={() => scrollToSection('pricing')} className="text-left px-6 py-4 text-lg font-medium text-gray-800 hover:bg-gray-50 rounded-2xl transition-colors">Pricing</button>
           <div className="p-2 mt-2">
-            <Button onClick={() => scrollToSection('join')} variant="primary" className="w-full py-4 rounded-xl shadow-lg shadow-black/10">Join Early Access</Button>
+            <Button onClick={() => scrollToSection('join')} variant="primary" className="w-full py-4 rounded-xl shadow-lg shadow-black/10">Get started</Button>
           </div>
         </div>
       )}

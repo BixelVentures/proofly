@@ -32,7 +32,7 @@ export const JoinForm: React.FC = () => {
             <CheckCircle2 size={48} className="text-white" />
           </div>
           <h2 className="text-4xl font-bold mb-6 tracking-tight">You're on the list.</h2>
-          <p className="text-gray-400 max-w-md mx-auto text-lg">Thanks for joining early access. We'll be in touch shortly.</p>
+          <p className="text-gray-400 max-w-md mx-auto text-lg">Thanks for getting started. We'll be in touch shortly.</p>
         </div>
       </section>
     );
@@ -142,7 +142,7 @@ export const JoinForm: React.FC = () => {
 
             <div className="pt-2">
               <Button type="submit" variant="primary" size="lg" className="w-full bg-white text-black hover:bg-gray-200 rounded-2xl h-16 text-lg font-bold transition-all hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100" disabled={isLoading}>
-                {isLoading ? <Loader2 className="animate-spin" /> : <span className="flex items-center">Join early access <ArrowRight className="ml-2 w-5 h-5" /></span>}
+                {isLoading ? <Loader2 className="animate-spin" /> : <span className="flex items-center">Get started <ArrowRight className="ml-2 w-5 h-5" /></span>}
               </Button>
 
               <p className="text-xs text-center text-gray-600 mt-6">

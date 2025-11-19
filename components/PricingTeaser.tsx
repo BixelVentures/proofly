@@ -111,7 +111,7 @@ export const PricingTeaser: React.FC = () => {
 
             <div className="mt-12 relative z-10">
               <Button onClick={scrollToJoin} variant="secondary" className="w-full py-5 text-lg font-bold border-none bg-white text-black hover:bg-gray-200 rounded-2xl shadow-lg shadow-black/25 transition-all hover:scale-[1.02]">
-                Join early access
+                Get started
               </Button>
               <p className="text-center text-xs text-gray-500 mt-4">Help shape our final pricing model.</p>
             </div>
