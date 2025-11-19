@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Camera, Unlock, MapPin, User, FileCheck, CheckCircle2, CreditCard, ArrowRight, Scan } from 'lucide-react';
+import { Plus, Camera, Unlock, MapPin, User, FileCheck, CheckCircle2, CreditCard, ArrowRight, Scan, BoxSelect } from 'lucide-react';
 
 export const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -160,35 +160,51 @@ export const HowItWorks: React.FC = () => {
                 {/* DYNAMIC SCREEN STATES */}
                 <div className="flex-1 relative p-6 overflow-hidden">
                   
-                  {/* STATE 1: CREATE JOB */}
-                  <div className={`absolute inset-0 p-6 transition-all duration-500 transform ${activeStep === 0 ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-full scale-95'}`}>
-                    <div className="space-y-4">
-                       <div className="text-xs font-mono text-gray-400 mb-4">// JOB_PARAMETERS</div>
+                  {/* STATE 1: SCAN THE SPACE */}
+                  <div className={`absolute inset-0 p-0 transition-all duration-500 transform ${activeStep === 0 ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-full scale-95'}`}>
+                    <div className="w-full h-full bg-black relative overflow-hidden">
+                       {/* 3D Space Image */}
+                       <img 
+                        src="https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?auto=format&fit=crop&q=80&w=1000" 
+                        className="w-full h-full object-cover opacity-80 scale-150 origin-bottom" 
+                        alt="3D Space Scan" 
+                       />
                        
-                       <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm space-y-3">
-                          <div className="flex items-center gap-3 text-gray-400 border-b border-gray-100 pb-3">
-                            <MapPin size={16} />
-                            <div className="h-2 w-32 bg-gray-100 rounded"></div>
+                       {/* Lidar Overlay Effect */}
+                       <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.1)_1px,transparent_1px)] bg-[size:40px_40px] opacity-50 pointer-events-none"></div>
+                       
+                       {/* Scanning Laser Animation */}
+                       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-emerald-500/20 to-transparent -translate-y-full animate-[fadeInUp_2s_ease-in-out_infinite] pointer-events-none border-b border-emerald-400/50"></div>
+                       
+                       {/* Scanning UI */}
+                       <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-20">
+                          <div className="bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
+                             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                             <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">LIDAR ACTIVE</span>
                           </div>
-                          <div className="flex items-center gap-3 text-gray-400">
-                            <User size={16} />
-                            <div className="h-2 w-24 bg-gray-100 rounded"></div>
+                          <div className="text-white/80 font-mono text-[10px]">
+                             FLOOR_01
                           </div>
                        </div>
 
-                       <div className="bg-blue-50 p-4 rounded-2xl border border-blue-100 text-blue-900 text-sm font-medium flex items-center gap-3">
-                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">
-                             <Plus size={16} />
-                          </div>
-                          Team Invited
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+
+                       {/* Points of Interest */}
+                       <div className="absolute top-[40%] left-[50%] w-8 h-8 border border-white/30 rounded-full flex items-center justify-center animate-ping"></div>
+                       <div className="absolute top-[40%] left-[50%] w-1.5 h-1.5 bg-emerald-400 rounded-full shadow-[0_0_10px_#34d399]"></div>
+                       
+                       <div className="absolute bottom-[30%] right-[30%] w-6 h-6 border border-white/20 rounded-full flex items-center justify-center animate-ping delay-300"></div>
+                       <div className="absolute bottom-[30%] right-[30%] w-1.5 h-1.5 bg-white/80 rounded-full"></div>
+
+                       {/* Floating Measurements */}
+                       <div className="absolute top-[35%] left-[52%] bg-black/50 backdrop-blur text-white text-[9px] font-mono px-1.5 py-0.5 rounded border border-white/10">
+                         24.5 m²
                        </div>
 
-                       {/* Animated Map */}
-                       <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden relative">
-                          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(#94a3b8 1px, transparent 1px)', backgroundSize: '10px 10px' }}></div>
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                             <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center animate-ping absolute"></div>
-                             <div className="w-3 h-3 bg-blue-600 rounded-full relative shadow-lg border-2 border-white"></div>
+                       <div className="absolute bottom-8 inset-x-6">
+                          <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-xl flex items-center gap-3">
+                             <BoxSelect className="text-emerald-400" size={18} />
+                             <div className="text-xs text-white font-medium">Processing spatial data...</div>
                           </div>
                        </div>
                     </div>

@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
       {/* Architectural Background Image with Fade */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
+          src="../img/" 
           alt="Modern Architecture" 
           className="w-full h-full object-cover opacity-[0.02] grayscale contrast-125"
         />
@@ -83,9 +83,9 @@ export const Hero: React.FC = () => {
 
             {/* THE REALITY LAYER: Background Image "Being Captured" */}
             {/* Style: "Looking in" effect (Inset Shadow) */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-[60%] -translate-y-[60%] w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] rounded-[2.5rem] overflow-hidden shadow-[inset_0_0_60px_rgba(0,0,0,0.3)] ring-1 ring-black/5 rotate-[-6deg] z-10 transition-transform hover:rotate-[-4deg] duration-700 group/scene bg-gray-100">
+             <div className="absolute top-1/2 left-1/2 -translate-x-[60%] -translate-y-[60%] w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] rounded-[2.5rem] overflow-hidden shadow-[inset_0_0_100px_rgba(0,0,0,0.4)] ring-1 ring-black/10 rotate-[-6deg] z-10 transition-transform hover:rotate-[-4deg] duration-700 group/scene bg-gray-100">
                 {/* Inner vignette overlay for the 'hole' effect */}
-                <div className="absolute inset-0 bg-black/5 z-10 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.25)]"></div>
+                <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none shadow-[inset_0_0_150px_rgba(0,0,0,0.5)]"></div>
                 
                 <img 
                   src={siteImage} 
